@@ -1,3 +1,4 @@
+import MenuList from "../../../shared/menuList/MenuList";
 import Banner from "./banner/banner";
 import Category from "./category/Category";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Category></Category>
+            <MenuList></MenuList>
         </div>
     );
 };
