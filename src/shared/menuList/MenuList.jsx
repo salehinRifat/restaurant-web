@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
 import MenuItem from "../menuItem/MenuItem";
+import useMenu from "../../hooks/useMenu";
 
 const MenuList = () => {
-    const [menu, setMenu] = useState([]);
-    useEffect(() => {
-        fetch("menu.json")
-            .then(res => res.json())
-            .then(data => {
-                let popular = data.filter(item => item.category == "popular");
-                setMenu(popular);
-            })
-    }, [])
-    console.log(menu);
+    const [menu] = useMenu('popular');
+    // useEffect(() => {
+    //     fetch("menu.json")
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             let popular = data.filter(item => item.category == "popular");
+    //             setMenu(popular);
+    //         })
+    // }, [])
+
     return (
         <div className="px-24 mt-10 mb-16">
             <SectionTitle
