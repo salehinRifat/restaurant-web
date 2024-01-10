@@ -4,7 +4,7 @@ const MenuItem = ({ item }) => {
     return (
         <div className="flex gap-4">
             <div>
-                <img src={image} alt="" style={{ borderRadius: '0 200px 200px 200px', height: '100px' }} />
+                <img src={image} alt="" style={{ borderRadius: '0 200px 200px 200px', height: '100px', }} />
             </div>
             <div>
                 <h1 className="text-2xl">{name}--------------</h1>
