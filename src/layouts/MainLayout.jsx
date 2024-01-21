@@ -4,11 +4,12 @@ import Navbar from "../pages/home/Navbar/Navbar";
 
 const MainLayout = () => {
     const location = useLocation();
+    const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('register');
     return (
         <div>
-            {location.pathname == '/login' || <Navbar></Navbar>}
+            {noHeaderFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
-            {location.pathname == '/login' || <Footer></Footer>}
+            {noHeaderFooter || <Footer></Footer>}
         </div>
     );
 };

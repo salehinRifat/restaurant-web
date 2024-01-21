@@ -1,14 +1,21 @@
 import './login.css';
 import loginImg from '../../assets/others/authentication2.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { AuthContext } from '../../components/AuthProvider/AuthProvider';
 const Login = () => {
     const [validate, setValidate] = useState(false);
     const captchaInput = useRef();
+    const { signInUser } = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault();
         const pass = e.target.password.value;
         const email = e.target.email.value;
+        signInUser(email, pass)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
 
     }
     const handleCaptcha = () => {
