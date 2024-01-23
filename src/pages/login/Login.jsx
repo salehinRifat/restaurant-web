@@ -3,6 +3,7 @@ import loginImg from '../../assets/others/authentication2.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../components/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 const Login = () => {
     const [validate, setValidate] = useState(false);
     const captchaInput = useRef();
@@ -66,6 +67,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className={`btn btn-primary ${validate || 'btn-disabled'}`}>Login</button>
                             </div>
+                            <Link to={'/register'} className='text-yellow-700'>Not a user? Register</Link>
                         </form>
                     </div>
                 </div>
