@@ -60,7 +60,6 @@ const Register = () => {
                                 <button className={'btn btn-ghost'}>Register</button>
                             </div>
                             <Link to={'/login'} className='text-yellow-700'>Already Registered ? Login</Link>
-                            <ToastContainer />
                         </form>
                     </div>
                 </div>

@@ -3,11 +3,16 @@ import loginImg from '../../assets/others/authentication2.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../components/AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Login = () => {
     const [validate, setValidate] = useState(false);
     const captchaInput = useRef();
     const { signInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const locatoin = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    console.log(from);
     const handleLogin = e => {
         e.preventDefault();
         const pass = e.target.password.value;
@@ -15,7 +20,9 @@ const Login = () => {
         signInUser(email, pass)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                toast('Logged in Succesfully!')
+            }).catch(error => {
+                toast(error.message);
             })
 
     }
