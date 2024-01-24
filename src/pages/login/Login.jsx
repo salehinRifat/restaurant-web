@@ -10,17 +10,16 @@ const Login = () => {
     const captchaInput = useRef();
     const { signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
-    const locatoin = useLocation();
+    const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    console.log(from);
     const handleLogin = e => {
         e.preventDefault();
         const pass = e.target.password.value;
         const email = e.target.email.value;
         signInUser(email, pass)
             .then(result => {
-                const user = result.user;
                 toast('Logged in Succesfully!')
+                navigate(from)
             }).catch(error => {
                 toast(error.message);
             })
